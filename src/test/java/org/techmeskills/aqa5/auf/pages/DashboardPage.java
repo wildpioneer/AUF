@@ -1,6 +1,7 @@
 package org.techmeskills.aqa5.auf.pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.techmeskills.aqa5.auf.baseEntity.BasePage;
 import org.techmeskills.aqa5.auf.core.BrowsersService;
 import org.techmeskills.aqa5.auf.elements.UIElement;
@@ -15,11 +16,11 @@ public class DashboardPage extends BasePage {
     }
 
     public boolean isPageOpened() {
-        return !super.isPageOpened(PAGEOPENEDIDENTIFIER);
+        return super.isPageOpened(PAGEOPENEDIDENTIFIER);
     }
 
-    public UIElement getAddProjectButton() {
-        return new UIElement(driver, addProjectButtonSelector);
+    public WebElement getAddProjectButton() {
+        return driver.findElement(addProjectButtonSelector);
     }
 
 }
