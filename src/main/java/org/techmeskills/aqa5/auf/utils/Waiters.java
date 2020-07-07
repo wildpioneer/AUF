@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.techmeskills.aqa5.auf.core.ReadProperties;
 
 public class Waiters {
     private WebDriver driver;
@@ -15,12 +16,30 @@ public class Waiters {
         wait = new WebDriverWait(driver, timeOut);
     }
 
+    public Waiters(WebDriver driver) {
+        this.driver = driver;
+        ReadProperties readProperties = new ReadProperties();
+        wait = new WebDriverWait(driver, readProperties.getTimeOut());
+    }
+
     public void waitForAlert() {
         wait.until(ExpectedConditions.alertIsPresent());
     }
 
-    public void waitForVisibility(By by) {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(by));
+    public WebElement waitForVisibility(By by) {
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(by));
+    }
+
+    public WebElement waitForVisibility(WebElement webElement) {
+        return wait.until(ExpectedConditions.visibilityOf(webElement));
+    }
+
+    public WebElement waitForClickable(By by) {
+        return wait.until(ExpectedConditions.elementToBeClickable(by));
+    }
+
+    public WebElement waitForClickable(WebElement webElement) {
+        return wait.until(ExpectedConditions.elementToBeClickable(webElement));
     }
 
     public void waitForInvisibility(By by, int time) {
