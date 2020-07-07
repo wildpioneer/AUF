@@ -15,7 +15,7 @@ public class DashboardPage extends BasePage {
     }
 
     public boolean isPageOpened() {
-        return !super.isPageOpened(PAGEOPENEDIDENTIFIER);
+        return super.isPageOpened(PAGEOPENEDIDENTIFIER);
     }
 
     public UIElement getAddProjectButton() {

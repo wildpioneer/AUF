@@ -14,10 +14,11 @@ public class LoginPage extends BasePage {
 
     public LoginPage(BrowsersService browsersService) {
         super(browsersService);
+        
     }
 
     public boolean isPageOpened() {
-        return !super.isPageOpened(PAGEOPENEDIDENTIFIER);
+        return super.isPageOpened(PAGEOPENEDIDENTIFIER);
     }
 
     public UIElement getEmailField() {

@@ -56,4 +56,12 @@ public class BrowsersService {
     public Waiters getWaiters() {
         return waiters;
     }
+
+    public void sleep(long millis) {
+        try {
+            Thread.sleep(millis);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
 }
