@@ -9,7 +9,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Listeners;
 
 @Listeners(Listener.class)
-public class BaseTest {
+public abstract class BaseTest {
     public BrowsersService browsersService;
     public ReadProperties properties;
     public WebDriver driver;

@@ -6,19 +6,24 @@ import org.techmeskills.aqa5.auf.core.BrowsersService;
 import org.techmeskills.aqa5.auf.elements.UIElement;
 
 public class LoginPage extends BasePage {
-    protected By PAGEOPENEDIDENTIFIER = By.id("button_primary");
+    private String URL = "https://aqa5master.testrail.io/";
 
-    protected By emailSelector = By.id("name");
-    protected By passwordSelector = By.id("password");
-    protected By loginSelector = By.id("button_primary");
+    private By emailSelector = By.id("name");
+    private By passwordSelector = By.id("password");
+    private By loginSelector = By.id("button_primary");
 
     public LoginPage(BrowsersService browsersService) {
-        super(browsersService);
-        
+        super(browsersService, false);
     }
 
+    @Override
+    protected void openPage() {
+
+    }
+
+    @Override
     public boolean isPageOpened() {
-        return super.isPageOpened(PAGEOPENEDIDENTIFIER);
+        return new UIElement(driver, By.id("button_primary")).isDisplayed();
     }
 
     public UIElement getEmailField() {

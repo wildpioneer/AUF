@@ -6,8 +6,6 @@ import org.techmeskills.aqa5.auf.core.BrowsersService;
 import org.techmeskills.aqa5.auf.elements.UIElement;
 
 public class AddProjectPage extends BasePage {
-    protected By PAGEOPENEDIDENTIFIER = By.id("accept");
-
     protected By addProjectButtonSelector = By.id("accept");
     protected By nameSelector = By.id("name");
     protected By suiteModeSingleSelector = By.id("suite_mode_single");
@@ -15,16 +13,20 @@ public class AddProjectPage extends BasePage {
     protected By suiteModeMultiSelector = By.id("suite_mode_multi");
 
     public AddProjectPage(BrowsersService browsersService) {
-        super(browsersService);
+        super(browsersService, false);
+    }
+
+    @Override
+    protected void openPage() {
+
     }
 
     public boolean isPageOpened() {
-        return super.isPageOpened(PAGEOPENEDIDENTIFIER);
+        return new UIElement(driver, By.id("accept")).isDisplayed();
     }
 
     public UIElement getAddProjectButton() {
         return new UIElement(driver, addProjectButtonSelector);
-        //return driver.findElement(addProjectButtonSelector);
     }
 
     public UIElement getNameField() {
