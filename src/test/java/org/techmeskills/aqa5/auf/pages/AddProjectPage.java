@@ -22,27 +22,27 @@ public class AddProjectPage extends BasePage {
     }
 
     public boolean isPageOpened() {
-        return new UIElement(driver, By.id("accept")).isDisplayed();
+        return new UIElement(browsersService, By.id("accept")).isDisplayed();
     }
 
     public UIElement getAddProjectButton() {
-        return new UIElement(driver, addProjectButtonSelector);
+        return new UIElement(browsersService, addProjectButtonSelector);
     }
 
     public UIElement getNameField() {
-        return new UIElement(driver, nameSelector);
+        return new UIElement(browsersService, nameSelector);
     }
 
     public UIElement getSuiteModeSingleOption() {
-        return new UIElement(driver, suiteModeSingleSelector);
+        return new UIElement(browsersService, suiteModeSingleSelector);
     }
 
     public UIElement getSuiteModeSingleBaselineOption() {
-        return new UIElement(driver, suiteModeSingleBaselineSelector);
+        return new UIElement(browsersService, suiteModeSingleBaselineSelector);
     }
 
     public UIElement getSuiteModeMultiSelectorOption()  {
-        return new UIElement(driver, suiteModeMultiSelector);
+        return new UIElement(browsersService, suiteModeMultiSelector);
     }
 
 

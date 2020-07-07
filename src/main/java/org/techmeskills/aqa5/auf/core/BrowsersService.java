@@ -15,9 +15,11 @@ public class BrowsersService {
     private WebDriver driver = null;
     private DriverManagerType driverManagerType = null;
     private Waiters waiters;
+    private String baseUrl;
 
     public BrowsersService() {
         ReadProperties readProperties = new ReadProperties();
+        baseUrl = readProperties.getURL();
 
         switch (readProperties.getBrowserName().toLowerCase()) {
             case "chrome":
@@ -56,6 +58,8 @@ public class BrowsersService {
     public Waiters getWaiters() {
         return waiters;
     }
+
+    public String getBaseUrl() { return baseUrl; }
 
     public void sleep(long millis) {
         try {

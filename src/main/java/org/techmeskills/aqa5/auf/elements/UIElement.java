@@ -1,25 +1,32 @@
 package org.techmeskills.aqa5.auf.elements;
 
 import org.openqa.selenium.*;
+import org.techmeskills.aqa5.auf.core.BrowsersService;
 import org.techmeskills.aqa5.auf.utils.Waiters;
 
 import java.util.List;
 
 public class UIElement implements WebElement {
+    private final BrowsersService browsersService;
     private final WebElement webElement;
     private final WebDriver driver;
     private final Waiters waiters;
 
-    public UIElement(WebDriver driver, WebElement webElement) {
+    public UIElement(BrowsersService browsersService, WebElement webElement) {
+        this.browsersService = browsersService;
+        this.driver = browsersService.getDriver();
+        waiters = browsersService.getWaiters();
+
         this.webElement = webElement;
-        this.driver = driver;
-        waiters = new Waiters(driver);
     }
 
-    public UIElement(WebDriver driver, By by) {
-        this.driver = driver;
-        this.webElement = findElement(by);
-        waiters = new Waiters(driver);
+    public UIElement(BrowsersService browsersService, By by) {
+        this.browsersService = browsersService;
+        this.driver = browsersService.getDriver();
+        waiters = browsersService.getWaiters();
+
+        this.webElement = waiters.presenceOfElementLocated(by);
+        //driver.findElement(by);
     }
 
     @Override
@@ -80,8 +87,8 @@ public class UIElement implements WebElement {
     }
 
     @Override
-    public WebElement findElement(By by) {
-        return driver.findElement(by);
+    public UIElement findElement(By by) {
+        return new UIElement(browsersService, webElement.findElement(by));
     }
 
     @Override
@@ -112,5 +119,10 @@ public class UIElement implements WebElement {
     @Override
     public <X> X getScreenshotAs(OutputType<X> outputType) throws WebDriverException {
         return webElement.getScreenshotAs(outputType);
+    }
+
+    public UIElement getParent() {
+        JavascriptExecutor executor = (JavascriptExecutor) driver;
+        return new UIElement(browsersService, (WebElement)executor.executeScript("return arguments[0].parentNode;", webElement));
     }
 }

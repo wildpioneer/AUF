@@ -23,18 +23,18 @@ public class LoginPage extends BasePage {
 
     @Override
     public boolean isPageOpened() {
-        return new UIElement(driver, By.id("button_primary")).isDisplayed();
+        return new UIElement(browsersService, By.id("button_primary")).isDisplayed();
     }
 
     public UIElement getEmailField() {
-        return new UIElement(driver, emailSelector);
+        return new UIElement(browsersService, emailSelector);
     }
 
     public UIElement getPasswordField() {
-        return new UIElement(driver, passwordSelector);
+        return new UIElement(browsersService, passwordSelector);
     }
 
     public UIElement getLoginButton() {
-        return new UIElement(driver, loginSelector);
+        return new UIElement(browsersService, loginSelector);
     }
 }

@@ -8,22 +8,23 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.techmeskills.aqa5.auf.core.ReadProperties;
 
 public class Waiters {
-    private WebDriver driver;
     private WebDriverWait wait;
 
     public Waiters(WebDriver driver, int timeOut) {
-        this.driver = driver;
         wait = new WebDriverWait(driver, timeOut);
     }
 
     public Waiters(WebDriver driver) {
-        this.driver = driver;
         ReadProperties readProperties = new ReadProperties();
         wait = new WebDriverWait(driver, readProperties.getTimeOut());
     }
 
     public void waitForAlert() {
         wait.until(ExpectedConditions.alertIsPresent());
+    }
+
+    public WebElement presenceOfElementLocated(By by) {
+        return wait.until(ExpectedConditions.presenceOfElementLocated(by));
     }
 
     public WebElement waitForVisibility(By by) {
@@ -42,18 +43,15 @@ public class Waiters {
         return wait.until(ExpectedConditions.elementToBeClickable(webElement));
     }
 
-    public void waitForInvisibility(By by, int time) {
-        WebDriverWait wait = new WebDriverWait(driver, time);
+    public void waitForInvisibility(By by) {
         wait.until(ExpectedConditions.invisibilityOfElementLocated(by));
     }
 
-    public void waitForInvisibility(WebElement webElement, int time) {
-        WebDriverWait wait = new WebDriverWait(driver, time);
+    public void waitForInvisibility(WebElement webElement) {
         wait.until(ExpectedConditions.invisibilityOf(webElement));
     }
 
-    public void waitForChangeAttribute(By by, String attribute, String attributeValue, int time) {
-        WebDriverWait wait = new WebDriverWait(driver, time);
+    public void waitForChangeAttribute(By by, String attribute, String attributeValue) {
         wait.until(ExpectedConditions.attributeContains(by, attribute, attributeValue));
     }
 }

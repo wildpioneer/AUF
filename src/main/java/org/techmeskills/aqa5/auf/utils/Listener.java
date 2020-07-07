@@ -18,13 +18,6 @@ public class Listener implements ITestListener {
     public void onTestSuccess(ITestResult result) {
     }
 
-/*
-    @Override
-    public void onTestFailure(ITestResult result) {
-        makeScreenshot("Failure screenshot");
-    }
-*/
-
     @Override
     public void onTestFailure(ITestResult tr) {
         Object currentClass = tr.getInstance();
