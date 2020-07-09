@@ -37,4 +37,9 @@ public class LoginPage extends BasePage {
     public UIElement getLoginButton() {
         return new UIElement(browsersService, loginSelector);
     }
+
+    public DashboardPage clickLoginButton() {
+        getLoginButton().click();
+        return new DashboardPage(browsersService);
+    }
 }
