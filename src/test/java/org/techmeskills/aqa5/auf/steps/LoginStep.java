@@ -18,6 +18,5 @@ public class LoginStep extends BaseStep {
         loginPage.getEmailField().sendKeys(username);
         loginPage.getPasswordField().sendKeys(password);
         loginPage.getLoginButton().click();
-
     }
 }

@@ -14,7 +14,7 @@ public class AdministrationPage extends BasePage {
 
     @Override
     protected void openPage() {
-        driver.get("https://aqa5master.testrail.io/index.php?/admin/overview");
+        browsersService.getDriver().get(browsersService.getBaseUrl() + "index.php?/admin/overview");
     }
 
     public boolean isPageOpened() {

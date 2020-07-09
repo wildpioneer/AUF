@@ -1,9 +1,7 @@
 package org.techmeskills.aqa5.auf.tests;
 
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.TimeoutException;
+import org.openqa.selenium.*;
 import org.techmeskills.aqa5.auf.baseEntity.BaseTest;
-import org.techmeskills.aqa5.auf.pages.AddProjectPage;
 import org.techmeskills.aqa5.auf.pages.administration.ProjectsPage;
 import org.techmeskills.aqa5.auf.steps.AdministrationStep;
 import org.techmeskills.aqa5.auf.steps.LoginStep;
@@ -24,7 +22,7 @@ public class SmokeTest1 extends BaseTest {
         projectStep.createNewProject("PR01", "Use a single repository for all cases (recommended)");
 
         Assert.assertTrue(browsersService.getDriver().getTitle().equalsIgnoreCase("PR01 - TestRail")
-                || browsersService.getDriver().getTitle().equalsIgnoreCase("Projects - TestRail"));  ;
+                || browsersService.getDriver().getTitle().equalsIgnoreCase("Projects - TestRail"));
     }
 
     @Test(dependsOnMethods = "createProject")

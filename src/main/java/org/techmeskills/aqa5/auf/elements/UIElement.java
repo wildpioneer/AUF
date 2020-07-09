@@ -9,12 +9,10 @@ import java.util.List;
 public class UIElement implements WebElement {
     private final BrowsersService browsersService;
     private final WebElement webElement;
-    private final WebDriver driver;
     private final Waiters waiters;
 
     public UIElement(BrowsersService browsersService, WebElement webElement) {
         this.browsersService = browsersService;
-        this.driver = browsersService.getDriver();
         waiters = browsersService.getWaiters();
 
         this.webElement = webElement;
@@ -22,11 +20,9 @@ public class UIElement implements WebElement {
 
     public UIElement(BrowsersService browsersService, By by) {
         this.browsersService = browsersService;
-        this.driver = browsersService.getDriver();
         waiters = browsersService.getWaiters();
 
         this.webElement = waiters.presenceOfElementLocated(by);
-        //driver.findElement(by);
     }
 
     @Override
@@ -34,7 +30,7 @@ public class UIElement implements WebElement {
         try {
             webElement.click();
         } catch (ElementNotVisibleException e) {
-            ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", webElement);
+            ((JavascriptExecutor) browsersService.getDriver()).executeScript("arguments[0].scrollIntoView(true);", webElement);
             waiters.waitForClickable(webElement);
             webElement.click();
         }
@@ -47,7 +43,7 @@ public class UIElement implements WebElement {
 
     @Override
     public void sendKeys(CharSequence... charSequences) {
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", webElement);
+        ((JavascriptExecutor) browsersService.getDriver()).executeScript("arguments[0].scrollIntoView(true);", webElement);
         webElement.sendKeys(charSequences);
     }
 
@@ -122,7 +118,7 @@ public class UIElement implements WebElement {
     }
 
     public UIElement getParent() {
-        JavascriptExecutor executor = (JavascriptExecutor) driver;
+        JavascriptExecutor executor = (JavascriptExecutor) browsersService.getDriver();
         return new UIElement(browsersService, (WebElement)executor.executeScript("return arguments[0].parentNode;", webElement));
     }
 }

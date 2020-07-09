@@ -12,14 +12,12 @@ import org.testng.annotations.Listeners;
 public abstract class BaseTest {
     public BrowsersService browsersService;
     public ReadProperties properties;
-    public WebDriver driver;
 
     @BeforeClass
     public void openPage() {
         browsersService = new BrowsersService();
         properties = new ReadProperties();
-        driver = browsersService.getDriver();
-        driver.get(properties.getURL());
+        browsersService.getDriver().get(properties.getURL());
     }
 
     @AfterClass

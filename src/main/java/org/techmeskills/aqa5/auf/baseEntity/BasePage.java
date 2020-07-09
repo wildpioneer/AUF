@@ -1,12 +1,10 @@
 package org.techmeskills.aqa5.auf.baseEntity;
 
-import org.openqa.selenium.WebDriver;
 import org.techmeskills.aqa5.auf.core.BrowsersService;
 
 public abstract class BasePage {
     protected static final int WAIT_FOR_PAGE_LOAD_IN_SECONDS = 5;
     protected final BrowsersService browsersService;
-    public final WebDriver driver;
 
     /**
      * In subclasses  should be used for page opening
@@ -22,7 +20,6 @@ public abstract class BasePage {
 
     public BasePage(BrowsersService browsersService, boolean openPageByUrl) {
         this.browsersService = browsersService;
-        this.driver = browsersService.getDriver();
 
         if (openPageByUrl) {
             openPage();
