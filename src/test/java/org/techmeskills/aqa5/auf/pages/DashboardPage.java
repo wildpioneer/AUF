@@ -24,4 +24,9 @@ public class DashboardPage extends BasePage {
     public UIElement getAddProjectButton() {
         return new UIElement(browsersService, addProjectButtonSelector);
     }
+
+    public AddProjectPage clickAddProjectButton() {
+        getAddProjectButton().click();
+        return new AddProjectPage(browsersService);
+    }
 }
