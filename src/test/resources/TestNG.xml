@@ -3,13 +3,13 @@
 <suite name="Parallel Suite">
     <test name="Parallel Test" thread-count="2" parallel="classes">
         <classes>
-            <class name="org.techmeskills.aqa5.auf.tests.SmokeTest1"/>
-            <class name="org.techmeskills.aqa5.auf.tests.SmokeTest2"/>
+            <class name="org.techmeskills.aqa5.auf.tests.uitests.SmokeTest1"/>
+            <class name="org.techmeskills.aqa5.auf.tests.uitests.SmokeTest2"/>
         </classes>
     </test>
     <test name="Standart Test">
         <classes>
-            <class name="org.techmeskills.aqa5.auf.tests.SmokeTest3"/>
+            <class name="org.techmeskills.aqa5.auf.tests.uitests.SmokeTest3"/>
         </classes>
     </test>
 </suite>

@@ -16,7 +16,7 @@ public class ProjectsPage extends BasePage {
 
     @Override
     protected void openPage() {
-        browsersService.getDriver().get(browsersService.getBaseUrl() + "index.php?/admin/projects/overview");
+        browsersService.getDriver().get(browsersService.getBaseUrl() + "/index.php?/admin/projects/overview");
     }
 
     public boolean isPageOpened() {

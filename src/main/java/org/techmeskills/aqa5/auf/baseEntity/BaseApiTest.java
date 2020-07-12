@@ -6,30 +6,22 @@ import org.techmeskills.aqa5.auf.models.User;
 import org.techmeskills.aqa5.auf.utils.Listener;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Listeners;
 
 @Listeners(Listener.class)
-public abstract class BaseTest {
-    public BrowsersService browsersService;
+public abstract class BaseApiTest {
     public ReadProperties properties;
     public User user;
 
-    @BeforeClass
+    @BeforeTest
     public void openPage() {
-        browsersService = new BrowsersService();
         properties = new ReadProperties();
-        browsersService.getDriver().get(properties.getURL());
         user = new User.Builder()
                 .withUsername("atrostyanko+master@gmail.com")
                 .withName("Alex")
                 .withPassword("QqtRK9elseEfAk6ilYcJ")
                 .withAge(42)
                 .build();
-    }
-
-    @AfterClass
-    public void closePage() {
-        browsersService.getDriver().quit();
-        browsersService = null;
     }
 }
