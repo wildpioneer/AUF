@@ -1,10 +1,10 @@
 package org.techmeskills.aqa5.auf.apiTests;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonObject;
+import io.restassured.mapper.ObjectMapperType;
 import org.apache.http.HttpStatus;
 import org.techmeskills.aqa5.auf.baseEntity.BaseApiTest;
 import org.techmeskills.aqa5.auf.models.Project;
+import org.techmeskills.aqa5.auf.models.ProjectSimple;
 import org.techmeskills.aqa5.auf.models.ProjectTypes;
 import org.techmeskills.aqa5.auf.models.User;
 import org.testng.annotations.Test;
@@ -13,12 +13,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.Matchers.*;
+import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.is;
 
 public class apiTest4 extends BaseApiTest {
+    int projectID;
 
     @Test
-    public void getTest1() {
+    public void getAllUsers1() {
         String endpoint = "/index.php?/api/v2/get_users";
 
         given()
@@ -29,7 +31,7 @@ public class apiTest4 extends BaseApiTest {
     }
 
     @Test
-    public void getTest2() {
+    public void getAllUsers2() {
         String endpoint = "/index.php?/api/v2/get_users";
 
         User user = new User.Builder()
@@ -49,7 +51,7 @@ public class apiTest4 extends BaseApiTest {
     }
 
     @Test
-    public void getTest3() {
+    public void getAllProjects() {
         String endpoint = "/index.php?/api/v2/get_projects";
 
         given()
@@ -61,7 +63,7 @@ public class apiTest4 extends BaseApiTest {
     }
 
     @Test
-    public void postTest1() {
+    public void addProject1() {
         String endpoint = "/index.php?/api/v2/add_project";
 
         Project project = new Project.Builder()
@@ -77,11 +79,12 @@ public class apiTest4 extends BaseApiTest {
         .when()
                 .post(endpoint)
         .then()
-                .log().body();
+                .log().body()
+                .statusCode(HttpStatus.SC_OK);
     }
 
     @Test
-    public void postTest2() {
+    public void addProject2() {
         String endpoint = "/index.php?/api/v2/add_project";
 
         Project project = new Project.Builder()
@@ -98,6 +101,80 @@ public class apiTest4 extends BaseApiTest {
         .when()
                 .post(endpoint)
         .then()
-                .log().body();
+                .log()
+                .body()
+                .statusCode(HttpStatus.SC_OK);
     }
+
+    @Test
+    public void addProject3() {
+        String endpoint = "/index.php?/api/v2/add_project";
+
+        ProjectSimple project = new ProjectSimple();
+        project.setName("PR03");
+        project.setSuite_mode(ProjectTypes.MULTIPLE_SUITE_MODE);
+
+        given()
+                .body(project, ObjectMapperType.GSON)
+        .when()
+                .post(endpoint)
+        .then()
+                .log().body()
+                .statusCode(HttpStatus.SC_OK);
+    }
+
+    @Test
+    public void addProject4() {
+        String endpoint = "/index.php?/api/v2/add_project";
+
+        Project project = new Project.Builder()
+                .withName("PR04")
+                .withType(ProjectTypes.SINGLE_SUITE_BASELINES)
+                .build();
+
+        projectID = given()
+                .body(project, ObjectMapperType.GSON)
+                .when()
+                .post(endpoint)
+                .then()
+                .statusCode(HttpStatus.SC_OK)
+                .extract().jsonPath().get("id");
+
+    }
+
+    @Test(dependsOnMethods = "addProject4")
+    public void updateProject1() {
+        String endpoint = "index.php?/api/v2/update_project/{project_id}";
+
+        Project project = new Project.Builder()
+                .withName("PR04_UPD")
+                .withAnnouncement("Test!!!")
+                .withIsShowAnnouncement(true)
+                .withIsCompleted(true)
+                .build();
+
+        given()
+                .pathParam("project_id", projectID)
+                .body(project, ObjectMapperType.GSON)
+                .when()
+                .post(endpoint)
+                .then()
+                .log().body()
+                .statusCode(HttpStatus.SC_OK);
+    }
+
+    @Test(dependsOnMethods = "updateProject1")
+    public void deleteProject1() {
+        String endpoint = "index.php?/api/v2/delete_project/{project_id}";
+
+        given()
+                .pathParam("project_id", projectID)
+                .when()
+                .post(endpoint)
+                .then()
+                .log().body()
+                .statusCode(HttpStatus.SC_OK);
+    }
+
+
 }

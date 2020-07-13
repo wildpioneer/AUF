@@ -4,6 +4,7 @@ public class Project {
     private String name;
     private String announcement;
     private boolean show_announcement;
+    private boolean is_completed;
     private int suite_mode;
 
     public static class Builder {
@@ -28,6 +29,11 @@ public class Project {
             return this;
         }
 
+        public Builder withIsCompleted(boolean is_completed) {
+            newProject.is_completed = is_completed;
+            return this;
+        }
+
         public Builder withType(int suite_mode) {
             newProject.suite_mode = suite_mode;
             return this;
@@ -46,11 +52,19 @@ public class Project {
         return announcement;
     }
 
-    public boolean isShowAnnouncement() {
+    public int getSuiteMode() {
+        return suite_mode;
+    }
+
+    public boolean isShow_announcement() {
         return show_announcement;
     }
 
-    public int getSuiteMode() {
+    public boolean isIs_completed() {
+        return is_completed;
+    }
+
+    public int getSuite_mode() {
         return suite_mode;
     }
 }
