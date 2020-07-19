@@ -4,10 +4,7 @@ import io.restassured.mapper.ObjectMapperType;
 import io.restassured.response.Response;
 import org.apache.http.HttpStatus;
 import org.techmeskills.aqa5.auf.baseEntity.BaseApiTest;
-import org.techmeskills.aqa5.auf.models.Project;
-import org.techmeskills.aqa5.auf.models.ProjectSimple;
-import org.techmeskills.aqa5.auf.models.ProjectTypes;
-import org.techmeskills.aqa5.auf.models.User;
+import org.techmeskills.aqa5.auf.models.*;
 import org.testng.annotations.Test;
 
 import java.util.HashMap;
@@ -35,11 +32,10 @@ public class apiTest4 extends BaseApiTest {
     public void getAllUsers2() {
         String endpoint = "/index.php?/api/v2/get_users";
 
-        User user = new User.Builder()
-                .withName("AQA5 Master")
-                .withEmail("atrostyanko+master@gmail.com")
-                .withIsActive(true)
-                .build();
+        UserSimple user = new UserSimple();
+        user.setName("AQA5 Master");
+        user.setEmail("atrostyanko+master@gmail.com");
+        user.setActive(true);
 
         given()
                 .when()

@@ -1,13 +1,15 @@
 package org.techmeskills.aqa5.auf.models;
 
-import lombok.Builder;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import lombok.ToString;
 
 @Data
-@Builder(toBuilder = true)
-@ToString(exclude = "name")
-public class User {
+@ToString
+@Getter
+@Setter
+public class  UserSimple {
     String name;
     String surname;
     String email;

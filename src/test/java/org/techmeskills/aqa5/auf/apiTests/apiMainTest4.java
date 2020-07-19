@@ -1,14 +1,14 @@
 package org.techmeskills.aqa5.auf.apiTests;
 
-import io.restassured.path.json.JsonPath;
+import lombok.ToString;
 import org.apache.http.HttpStatus;
 import org.techmeskills.aqa5.auf.baseEntity.BaseApiTest;
 import org.techmeskills.aqa5.auf.models.User;
-import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.Matchers.*;
+import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.is;
 
 public class apiMainTest4 extends BaseApiTest {
 
@@ -26,6 +26,8 @@ public class apiMainTest4 extends BaseApiTest {
                 .body("get(0).email", equalTo(user.getEmail()))
                 .body("get(0).is_active", is(user.isActive()))
                 .statusCode(HttpStatus.SC_OK);
+
+        System.out.println(user.toString());
     }
 
     @Test
@@ -36,7 +38,7 @@ public class apiMainTest4 extends BaseApiTest {
         given()
                 .when()
                 .get(endpoint)
-        .then()
+                .then()
                 .log().body()
                 .body("name", is(user.getName()))
                 .body("email", equalTo(user.getEmail()))
