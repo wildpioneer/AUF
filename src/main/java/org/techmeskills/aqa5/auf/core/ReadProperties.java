@@ -20,7 +20,7 @@ public class ReadProperties {
     }
 
     public String getBrowserName() {
-        return properties.getProperty(  "browser");
+        return properties.getProperty("browser");
     }
 
     public boolean isHeadless() {
@@ -30,4 +30,13 @@ public class ReadProperties {
     public int getTimeOut() {
         return Integer.parseInt(properties.getProperty("timeout"));
     }
+
+    public String getApiUsername() {
+        return properties.getProperty("apiusername");
+    }
+
+    public String getApiPassword() {
+        return properties.getProperty("apipassword");
+    }
+
 }

@@ -1,6 +1,7 @@
 package org.techmeskills.aqa5.auf.apiTests;
 
 import io.restassured.mapper.ObjectMapperType;
+import io.restassured.response.Response;
 import org.apache.http.HttpStatus;
 import org.techmeskills.aqa5.auf.baseEntity.BaseApiTest;
 import org.techmeskills.aqa5.auf.models.Project;
@@ -76,9 +77,9 @@ public class apiTest4 extends BaseApiTest {
                         "    \"name\": \"%s\",\n" +
                         "    \"suite_mode\": %d\n" +
                         "}", project.getName(), project.getSuiteMode()))
-        .when()
+                .when()
                 .post(endpoint)
-        .then()
+                .then()
                 .log().body()
                 .statusCode(HttpStatus.SC_OK);
     }
@@ -98,9 +99,9 @@ public class apiTest4 extends BaseApiTest {
 
         given()
                 .body(jsonAsMap)
-        .when()
+                .when()
                 .post(endpoint)
-        .then()
+                .then()
                 .log()
                 .body()
                 .statusCode(HttpStatus.SC_OK);
@@ -116,9 +117,9 @@ public class apiTest4 extends BaseApiTest {
 
         given()
                 .body(project, ObjectMapperType.GSON)
-        .when()
+                .when()
                 .post(endpoint)
-        .then()
+                .then()
                 .log().body()
                 .statusCode(HttpStatus.SC_OK);
     }
@@ -153,14 +154,13 @@ public class apiTest4 extends BaseApiTest {
                 .withIsCompleted(true)
                 .build();
 
-        given()
+        Response json = given()
                 .pathParam("project_id", projectID)
                 .body(project, ObjectMapperType.GSON)
                 .when()
                 .post(endpoint)
                 .then()
-                .log().body()
-                .statusCode(HttpStatus.SC_OK);
+                .extract().response();
     }
 
     @Test(dependsOnMethods = "updateProject1")
@@ -175,6 +175,4 @@ public class apiTest4 extends BaseApiTest {
                 .log().body()
                 .statusCode(HttpStatus.SC_OK);
     }
-
-
 }
