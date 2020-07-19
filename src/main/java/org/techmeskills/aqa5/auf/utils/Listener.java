@@ -26,7 +26,7 @@ public class Listener implements ITestListener {
             byte[] srcFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
             saveScreenshot(srcFile);
         } catch (Exception ex) {
-            
+
         }
     }
 
