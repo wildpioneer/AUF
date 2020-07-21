@@ -8,7 +8,6 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class apiTest {
-
     @Test
     public void test() {
         // Setup RestAssured

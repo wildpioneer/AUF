@@ -19,6 +19,8 @@ public class apiTest4 extends BaseApiTest {
 
     @Test
     public void getAllUsers1() {
+        logger.warn("Test warning.");
+
         String endpoint = "/index.php?/api/v2/get_users";
 
         given()
