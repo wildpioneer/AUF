@@ -43,7 +43,8 @@
         </dependency>
     </dependencies>
     <build>
-
+        <sourceDirectory>src/main/java</sourceDirectory>
+        <testSourceDirectory>src/test/java/org/techmeskills/aqa5/auf</testSourceDirectory>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -51,6 +52,9 @@
                 <version>2.22.2</version>
                 <configuration>
                     <testFailureIgnore>true</testFailureIgnore>
+                    <forkCount>2</forkCount>
+                    <reuseForks>true</reuseForks>
+                    <suiteXmlFiles>src/test/resources/testng.xml</suiteXmlFiles>
                     <argLine>
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
                     </argLine>
@@ -66,9 +70,10 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.0</version>
                 <configuration>
-                    <source>7</source>
-                    <target>7</target>
+                    <source>1.7</source>
+                    <target>1.7</target>
                 </configuration>
             </plugin>
         </plugins>

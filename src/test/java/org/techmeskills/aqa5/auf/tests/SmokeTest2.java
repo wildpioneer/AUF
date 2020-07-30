@@ -1,4 +1,4 @@
-package org.techmeskills.aqa5.auf.tests;
+package tests;
 
 import org.techmeskills.aqa5.auf.baseEntity.BaseTest;
 import org.techmeskills.aqa5.auf.steps.LoginStep;
