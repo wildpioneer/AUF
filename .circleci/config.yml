@@ -9,55 +9,16 @@
 #      - maven/test # checkout, build, test, and upload test results
 version: 2.1
 jobs:
-  ui-tests:
+  build:
     docker:
-      - image: circleci/openjdk:8u181-jdk-browsers
-    working_directory: ~/repo
-    environment:
-    # get from git and get maven dependencies
+      - image: circleci/node:jessie-browsers
     steps:
       - checkout
-      - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "pom.xml" }}
-            - v1-dependencies-
-      - run: mvn dependency:go-offline
-      - save_cache:
-          paths:
-            - ~/.m2
-          key: v1-dependencies-{{ checksum "pom.xml" }}
-
-      # run tests!
+      - run: mkdir test-reports
       - run:
-          name: Get chrome version
-          command: google-chrome --version
+          name: Download Selenium
+          command: curl -O http://selenium-release.storage.googleapis.com/3.5/selenium-server-standalone-3.5.3.jar
       - run:
-          name: Setting chmod for Chrome
-          command: chmod 777 src/test/resources/webdrivers/linux/chromedriver
-      - run:
-          name: Running tests
-          command: mvn clean install
-      - run:
-          name: Generate allure report
-          command: mvn allure:report
-          when: always
-      - store_test_results:
-          path: target/surefire-reports/junitreports
-          when: always
-      - store_artifacts:
-          path: target/site/allure-maven-plugin/
-workflows:
-  version: 2
-  commit:
-    jobs:
-      - ui-tests
-  periodical:
-    triggers:
-      - schedule:
-          cron: "1 4,8,12 * * *"
-          filters:
-            branches:
-              only:
-                - master
-    jobs:
-      - ui-tests
+          name: Start Selenium
+          command: java -jar selenium-server-standalone-3.5.3.jar -log test-reports/selenium.log
+          background: true
