@@ -1,11 +1,11 @@
-package org.techmeskills.aqa5.auf.steps;
+package steps;
+
 
 import io.qameta.allure.Step;
 import org.techmeskills.aqa5.auf.baseEntity.BaseStep;
 import org.techmeskills.aqa5.auf.core.BrowsersService;
-import org.techmeskills.aqa5.auf.pages.AddProjectPage;
-import org.techmeskills.aqa5.auf.pages.DashboardPage;
-import org.techmeskills.aqa5.auf.pages.LoginPage;
+import pages.AddProjectPage;
+import pages.DashboardPage;
 
 public class ProjectStep extends BaseStep {
 
@@ -15,10 +15,10 @@ public class ProjectStep extends BaseStep {
 
     @Step
     public void createNewProject(String name, String type) {
-        DashboardPage dashboardPage = new DashboardPage(browsersService);
+        DashboardPage dashboardPage = new DashboardPage(browsersService, false);
         dashboardPage.getAddProjectButton().click();
 
-        AddProjectPage addProjectPage = new AddProjectPage(browsersService);
+        AddProjectPage addProjectPage = new AddProjectPage(browsersService, false);
         addProjectPage.getNameField().sendKeys(name);
 
         switch (type) {

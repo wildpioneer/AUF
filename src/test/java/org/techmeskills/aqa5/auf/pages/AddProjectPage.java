@@ -1,4 +1,4 @@
-package org.techmeskills.aqa5.auf.pages;
+package pages;
 
 import org.openqa.selenium.By;
 import org.techmeskills.aqa5.auf.baseEntity.BasePage;
@@ -6,7 +6,7 @@ import org.techmeskills.aqa5.auf.core.BrowsersService;
 import org.techmeskills.aqa5.auf.elements.UIElement;
 
 public class AddProjectPage extends BasePage {
-    protected By PAGEOPENEDIDENTIFIER = By.id("accept");
+    private static String ENDPOINT = "/auth/login";
 
     protected By addProjectButtonSelector = By.id("accept");
     protected By nameSelector = By.id("name");
@@ -14,17 +14,21 @@ public class AddProjectPage extends BasePage {
     protected By suiteModeSingleBaselineSelector = By.id("suite_mode_single_baseline");
     protected By suiteModeMultiSelector = By.id("suite_mode_multi");
 
-    public AddProjectPage(BrowsersService browsersService) {
-        super(browsersService);
+    public AddProjectPage(BrowsersService browsersService, boolean openPageByUrl) {
+        super(browsersService, openPageByUrl);
+    }
+
+    @Override
+    protected void openPage() {
+        driver.get(BASE_URL + ENDPOINT);
     }
 
     public boolean isPageOpened() {
-        return !super.isPageOpened(PAGEOPENEDIDENTIFIER);
+        return driver.findElement(By.id("accept")).isDisplayed();
     }
 
     public UIElement getAddProjectButton() {
         return new UIElement(driver, addProjectButtonSelector);
-        //return driver.findElement(addProjectButtonSelector);
     }
 
     public UIElement getNameField() {

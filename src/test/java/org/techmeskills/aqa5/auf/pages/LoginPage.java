@@ -1,4 +1,4 @@
-package org.techmeskills.aqa5.auf.pages;
+package pages;
 
 import org.openqa.selenium.By;
 import org.techmeskills.aqa5.auf.baseEntity.BasePage;
@@ -6,18 +6,23 @@ import org.techmeskills.aqa5.auf.core.BrowsersService;
 import org.techmeskills.aqa5.auf.elements.UIElement;
 
 public class LoginPage extends BasePage {
-    protected By PAGEOPENEDIDENTIFIER = By.id("button_primary");
+    private static String ENDPOINT = "/auth/login";
 
     protected By emailSelector = By.id("name");
     protected By passwordSelector = By.id("password");
     protected By loginSelector = By.id("button_primary");
 
-    public LoginPage(BrowsersService browsersService) {
-        super(browsersService);
+    public LoginPage(BrowsersService browsersService, boolean openPageByUrl) {
+        super(browsersService, openPageByUrl);
+    }
+
+    @Override
+    protected void openPage() {
+        driver.get(BASE_URL + ENDPOINT);
     }
 
     public boolean isPageOpened() {
-        return !super.isPageOpened(PAGEOPENEDIDENTIFIER);
+        return driver.findElement(By.id("button_primary")).isDisplayed();
     }
 
     public UIElement getEmailField() {
