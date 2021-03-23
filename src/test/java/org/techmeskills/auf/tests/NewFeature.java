@@ -8,4 +8,10 @@ public class NewFeature {
     public void FirstTest() {
 
     }
+
+    @Test
+    public void SecondTest() {
+
+    }
+
 }
