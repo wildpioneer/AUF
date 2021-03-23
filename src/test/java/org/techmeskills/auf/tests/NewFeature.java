@@ -17,6 +17,11 @@ public class NewFeature {
     public void ThirdTest() {
         //sjdfhskdfhskjdh
     }
+    @Test
+    public void FoursTest() {
+
+    }
+
 
     public void FiveTest() {
         //sjdfhskdfhskjdh
