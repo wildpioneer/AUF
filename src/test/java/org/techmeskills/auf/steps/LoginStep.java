@@ -1,9 +1,9 @@
-package org.techmeskills.aqa5.auf.steps;
+package org.techmeskills.auf.steps;
 
 import io.qameta.allure.Step;
-import org.techmeskills.aqa5.auf.baseEntity.BaseStep;
-import org.techmeskills.aqa5.auf.core.BrowsersService;
-import org.techmeskills.aqa5.auf.pages.LoginPage;
+import org.techmeskills.auf.baseEntity.BaseStep;
+import org.techmeskills.auf.core.BrowsersService;
+import org.techmeskills.auf.pages.LoginPage;
 
 public class LoginStep extends BaseStep {
 

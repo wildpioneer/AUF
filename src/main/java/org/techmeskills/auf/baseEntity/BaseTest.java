@@ -1,9 +1,9 @@
-package org.techmeskills.aqa5.auf.baseEntity;
+package org.techmeskills.auf.baseEntity;
 
 import org.openqa.selenium.WebDriver;
-import org.techmeskills.aqa5.auf.core.BrowsersService;
-import org.techmeskills.aqa5.auf.core.ReadProperties;
-import org.techmeskills.aqa5.auf.utils.Listener;
+import org.techmeskills.auf.core.BrowsersService;
+import org.techmeskills.auf.core.ReadProperties;
+import org.techmeskills.auf.utils.Listener;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Listeners;

@@ -1,8 +1,8 @@
-package org.techmeskills.aqa5.auf.elements;
+package org.techmeskills.auf.elements;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
-import org.techmeskills.aqa5.auf.utils.Waiters;
+import org.techmeskills.auf.utils.Waiters;
 
 import java.util.List;
 

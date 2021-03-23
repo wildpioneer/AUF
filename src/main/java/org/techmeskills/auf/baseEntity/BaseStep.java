@@ -1,6 +1,6 @@
-package org.techmeskills.aqa5.auf.baseEntity;
+package org.techmeskills.auf.baseEntity;
 
-import org.techmeskills.aqa5.auf.core.BrowsersService;
+import org.techmeskills.auf.core.BrowsersService;
 
 public class BaseStep {
     public BrowsersService browsersService;

@@ -1,9 +1,9 @@
-package org.techmeskills.aqa5.auf.baseEntity;
+package org.techmeskills.auf.baseEntity;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.techmeskills.aqa5.auf.core.BrowsersService;
-import org.techmeskills.aqa5.auf.utils.Waiters;
+import org.techmeskills.auf.core.BrowsersService;
+import org.techmeskills.auf.utils.Waiters;
 
 public class BasePage {
     public WebDriver driver;

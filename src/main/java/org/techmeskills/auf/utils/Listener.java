@@ -1,10 +1,10 @@
-package org.techmeskills.aqa5.auf.utils;
+package org.techmeskills.auf.utils;
 
 import io.qameta.allure.Attachment;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
-import org.techmeskills.aqa5.auf.baseEntity.BaseTest;
+import org.techmeskills.auf.baseEntity.BaseTest;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;

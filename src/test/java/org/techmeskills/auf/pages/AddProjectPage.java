@@ -1,9 +1,9 @@
-package org.techmeskills.aqa5.auf.pages;
+package org.techmeskills.auf.pages;
 
 import org.openqa.selenium.By;
-import org.techmeskills.aqa5.auf.baseEntity.BasePage;
-import org.techmeskills.aqa5.auf.core.BrowsersService;
-import org.techmeskills.aqa5.auf.elements.UIElement;
+import org.techmeskills.auf.baseEntity.BasePage;
+import org.techmeskills.auf.core.BrowsersService;
+import org.techmeskills.auf.elements.UIElement;
 
 public class AddProjectPage extends BasePage {
     protected By PAGEOPENEDIDENTIFIER = By.id("accept");

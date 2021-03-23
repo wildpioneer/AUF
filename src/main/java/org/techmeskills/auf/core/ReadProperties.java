@@ -1,4 +1,4 @@
-package org.techmeskills.aqa5.auf.core;
+package org.techmeskills.auf.core;
 
 import java.io.IOException;
 import java.util.Properties;

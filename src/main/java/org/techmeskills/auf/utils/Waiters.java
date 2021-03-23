@@ -1,11 +1,11 @@
-package org.techmeskills.aqa5.auf.utils;
+package org.techmeskills.auf.utils;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.techmeskills.aqa5.auf.core.ReadProperties;
+import org.techmeskills.auf.core.ReadProperties;
 
 public class Waiters {
     private WebDriver driver;

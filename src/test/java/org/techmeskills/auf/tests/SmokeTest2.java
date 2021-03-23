@@ -1,8 +1,8 @@
-package org.techmeskills.aqa5.auf.tests;
+package org.techmeskills.auf.tests;
 
-import org.techmeskills.aqa5.auf.baseEntity.BaseTest;
-import org.techmeskills.aqa5.auf.steps.LoginStep;
-import org.techmeskills.aqa5.auf.steps.ProjectStep;
+import org.techmeskills.auf.baseEntity.BaseTest;
+import org.techmeskills.auf.steps.LoginStep;
+import org.techmeskills.auf.steps.ProjectStep;
 import org.testng.annotations.Test;
 
 public class SmokeTest2 extends BaseTest {
