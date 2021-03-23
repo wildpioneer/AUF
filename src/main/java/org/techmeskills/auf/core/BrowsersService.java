@@ -14,15 +14,17 @@ public class BrowsersService {
     private Waiters waiters;
 
     public BrowsersService() {
-        ReadProperties readProperties = new ReadProperties();
+        this(new ReadProperties().getBrowserName());
+    }
 
-        switch (readProperties.getBrowserName().toLowerCase()) {
+    public BrowsersService(String browserName) {
+        switch (browserName.toLowerCase()) {
             case "chrome":
                 driverManagerType = DriverManagerType.CHROME;
                 WebDriverManager.getInstance(driverManagerType).setup();
 
                 ChromeOptions chromeOptions = new ChromeOptions();
-                chromeOptions.setHeadless(readProperties.isHeadless());
+                chromeOptions.setHeadless(new ReadProperties().isHeadless());
                 chromeOptions.addArguments("--disable-gpu");
                 //chromeOptions.addArguments("--window-size=1920,1200");
                 chromeOptions.addArguments("--ignore-certificate-errors");
@@ -39,11 +41,11 @@ public class BrowsersService {
                 driver = new FirefoxDriver();
                 break;
             default:
-                System.out.println("Browser " + readProperties.getBrowserName() + " is not supported.");
+                System.out.println("Browser " + browserName + " is not supported.");
                 break;
         }
 
-        waiters = new Waiters(driver, readProperties.getTimeOut());
+        waiters = new Waiters(driver, new ReadProperties().getTimeOut());
     }
 
     public WebDriver getDriver() {
