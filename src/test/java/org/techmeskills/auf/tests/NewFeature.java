@@ -14,5 +14,10 @@ public class NewFeature {
 
     }
 
+    @Test
+    public void FoursTest() {
+
+    }
+
 
 }
