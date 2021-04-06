@@ -2,6 +2,7 @@ package org.techmeskills.aqa5.auf.uiTests;
 
 import org.openqa.selenium.*;
 import org.techmeskills.aqa5.auf.baseEntity.BaseTest;
+import org.techmeskills.aqa5.auf.core.ReadProperties;
 import org.techmeskills.aqa5.auf.pages.administration.ProjectsPage;
 import org.techmeskills.aqa5.auf.steps.AdministrationStep;
 import org.techmeskills.aqa5.auf.steps.LoginStep;
@@ -13,7 +14,7 @@ public class SmokeTest1 extends BaseTest {
     @Test
     public void login() {
         LoginStep loginStep = new LoginStep(browsersService);
-        loginStep.login("atrostyanko+master@gmail.com", "QqtRK9elseEfAk6ilYcJ");
+        loginStep.login(new ReadProperties().getApiUsername(), new ReadProperties().getApiPassword());
     }
 
     @Test(dependsOnMethods = "login")

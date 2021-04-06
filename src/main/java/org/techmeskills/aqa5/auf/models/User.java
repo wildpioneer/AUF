@@ -7,9 +7,20 @@ public class User {
     private boolean isActive;
     private int age;
     private int id;
+    private int role_id;
     private String username;
     private String password;
     private String address;
+
+    public int getRole_id() {
+        return role_id;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    private String role;
 
     public static class Builder {
         private User newUser;
@@ -60,6 +71,16 @@ public class User {
 
         public Builder withAddress(String address) {
             newUser.address = address;
+            return this;
+        }
+
+        public Builder withRoleId(int role_id) {
+            newUser.role_id = role_id;
+            return this;
+        }
+
+        public Builder withRole(String role) {
+            newUser.role = role;
             return this;
         }
 

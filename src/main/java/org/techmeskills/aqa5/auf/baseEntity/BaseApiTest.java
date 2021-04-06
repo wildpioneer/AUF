@@ -31,14 +31,14 @@ public abstract class BaseApiTest {
                 .auth().preemptive().basic(properties.getApiUsername(), properties.getApiPassword());
 
         master = new User.Builder()
-                .withName("AQA5 Master")
-                .withEmail("atrostyanko+master@gmail.com")
+                .withName("AQA7 Master")
+                .withEmail("atrostyanko+072@gmail.com")
                 .withIsActive(true)
                 .build();
 
         tester = new User.Builder()
-                .withName("AQA5 Tester")
-                .withEmail("atrostyanko+tester@gmail.com")
+                .withName("AQA7 Tester")
+                .withEmail("atrostyanko+072@gmail.com")
                 .withIsActive(true)
                 .build();
 

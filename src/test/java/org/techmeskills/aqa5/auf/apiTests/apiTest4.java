@@ -1,5 +1,6 @@
 package org.techmeskills.aqa5.auf.apiTests;
 
+import com.google.gson.Gson;
 import io.restassured.mapper.ObjectMapperType;
 import io.restassured.response.Response;
 import org.apache.http.HttpStatus;
@@ -8,8 +9,10 @@ import org.techmeskills.aqa5.auf.models.Project;
 import org.techmeskills.aqa5.auf.models.ProjectSimple;
 import org.techmeskills.aqa5.auf.models.ProjectTypes;
 import org.techmeskills.aqa5.auf.models.User;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import javax.jws.soap.SOAPBinding;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -49,6 +52,28 @@ public class apiTest4 extends BaseApiTest {
                 .body("get(0).name", is(user.getName()))
                 .body("get(0).email", equalTo(user.getEmail()))
                 .statusCode(HttpStatus.SC_OK);
+    }
+
+    @Test
+    public void getAllUsers2_1() {
+        String endpoint = "/index.php?/api/v2/get_users";
+        Gson gson = new Gson();
+
+        User user = new User.Builder()
+                .withName("AQA5 Master")
+                .withEmail("atrostyanko+master@gmail.com")
+                .withIsActive(true)
+                .build();
+
+        String response = given()
+                        .when()
+                        .get(endpoint)
+                        .then()
+                        .log().body().toString();
+
+        User actualUser = gson.fromJson(response, User.class);
+
+        Assert.assertEquals(user, actualUser);
     }
 
     @Test
