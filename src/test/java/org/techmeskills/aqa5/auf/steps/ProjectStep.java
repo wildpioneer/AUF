@@ -19,20 +19,23 @@ public class ProjectStep extends BaseStep {
         dashboardPage.getAddProjectButton().click();
 
         AddProjectPage addProjectPage = new AddProjectPage(browsersService);
-        addProjectPage.getNameField().sendKeys(name);
+        addProjectPage.name.sendKeys(name);
 
         switch (type) {
             case "Use a single repository for all cases (recommended)":
-                addProjectPage.getSuiteModeSingleOption().click();
+                addProjectPage.suiteModeSingle.click();
                 break;
             case "Use a single repository with baseline support":
-                addProjectPage.getSuiteModeSingleBaselineOption().click();
+                addProjectPage.suiteModeSingleBaseline.click();
                 break;
             case "Use multiple test suites to manage cases":
-                addProjectPage.getSuiteModeMultiSelectorOption().click();
+                addProjectPage.suiteModeMulti.click();
                 break;
         }
 
-        addProjectPage.getAddProjectButton().submit();
+        System.out.println(addProjectPage.nameList.size());
+        System.out.println(addProjectPage.suiteModeSingleList.size());
+
+        addProjectPage.addProjectButton.submit();
     }
 }

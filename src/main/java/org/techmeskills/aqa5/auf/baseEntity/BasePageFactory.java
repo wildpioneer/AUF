@@ -35,6 +35,7 @@ public abstract class BasePageFactory {
      */
     protected void waitForOpen() {
         int secondsCount = 0;
+
         boolean isPageOpenedIndicator = isPageOpened();
         while (!isPageOpenedIndicator && secondsCount < WAIT_FOR_PAGE_LOAD_IN_SECONDS) {
             browsersService.sleep(1000);
