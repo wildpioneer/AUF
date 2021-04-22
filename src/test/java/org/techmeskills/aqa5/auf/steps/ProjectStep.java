@@ -13,7 +13,7 @@ public class ProjectStep extends BaseStep {
         super(browsersService);
     }
 
-    @Step
+    @Step("Creation '{name}' + '{type}' test step")
     public void createNewProject(String name, String type) {
         DashboardPage dashboardPage = new DashboardPage(browsersService);
         dashboardPage.getAddProjectButton().click();
