@@ -1,7 +1,5 @@
 package org.techmeskills.aqa5.auf.uiTests;
 
-import com.sun.org.slf4j.internal.Logger;
-import com.sun.org.slf4j.internal.LoggerFactory;
 import org.apache.logging.log4j.Marker;
 import org.apache.logging.log4j.MarkerManager;
 import org.techmeskills.aqa5.auf.baseEntity.BaseTest;
@@ -18,7 +16,7 @@ public class SmokeTest3 extends BaseTest {
         mainLogger.warn("login method started...");
 
         LoginStep loginStep = new LoginStep(browsersService);
-        loginStep.login("atrostyanko+master@gmail.com", "QqtRK9elseEfAk6ilYcJ");
+        loginStep.login("atrostyanko+0401@gmail.com", "QqtRK9elseEfAk6ilYcJ");
     }
 
     @Test(dependsOnMethods = "login")

@@ -36,7 +36,7 @@ public class apiTest4 extends BaseApiTest {
 
         UserSimple user = new UserSimple();
         user.setName("AQA5 Master");
-        user.setEmail("atrostyanko+master@gmail.com");
+        user.setEmail("atrostyanko+0401@gmail.com");
         user.setActive(true);
 
         given()

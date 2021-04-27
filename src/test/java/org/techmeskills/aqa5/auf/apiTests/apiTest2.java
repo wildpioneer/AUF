@@ -21,7 +21,7 @@ public class apiTest2 {
         // Setup Request Object
         RequestSpecification httpRequest = RestAssured.given();
         httpRequest.header(HTTP.CONTENT_TYPE, ContentType.JSON);
-        httpRequest.auth().preemptive().basic("atrostyanko+master@gmail.com", "QqtRK9elseEfAk6ilYcJ");
+        httpRequest.auth().preemptive().basic("atrostyanko+0401@gmail.com", "QqtRK9elseEfAk6ilYcJ");
 
         // Setup Response Object
         Response response = httpRequest.request(Method.GET, endpoint);

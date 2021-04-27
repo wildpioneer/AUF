@@ -34,7 +34,7 @@ public abstract class BaseApiTest {
 
         master = User.builder()
                 .name("AQA5 Master")
-                .email("atrostyanko+master@gmail.com")
+                .email("atrostyanko+0401@gmail.com")
                 .isActive(true)
                 .build();
 

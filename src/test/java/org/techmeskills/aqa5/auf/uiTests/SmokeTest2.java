@@ -12,7 +12,7 @@ public class SmokeTest2 extends BaseTest {
     @Test
     public void login() {
         LoginStep loginStep = new LoginStep(browsersService);
-        loginStep.login("atrostyanko+master@gmail.com", "QqtRK9elseEfAk6ilYcJ");
+        loginStep.login("atrostyanko+0401@gmail.com", "QqtRK9elseEfAk6ilYcJ");
     }
 
     @Test(dependsOnMethods = "login")
