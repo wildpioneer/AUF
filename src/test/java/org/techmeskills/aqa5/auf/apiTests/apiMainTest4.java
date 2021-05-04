@@ -70,7 +70,7 @@ public class apiMainTest4 extends BaseApiTest {
                 .show_announcement(false)
                 .is_completed(false)
                 .suite_mode(3)
-                .url("https://aqa0702.testrail.io/index.php?/projects/overview/2")
+                .url("https://aqa04onl03.testrail.io/index.php?/projects/overview/2")
                 .build();
 
         String response = given()

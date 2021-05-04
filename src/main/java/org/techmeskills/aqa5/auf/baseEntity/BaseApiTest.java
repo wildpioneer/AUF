@@ -32,13 +32,13 @@ public abstract class BaseApiTest {
 
         master = new User.Builder()
                 .withName("AQA7 Master")
-                .withEmail("atrostyanko+072@gmail.com")
+                .withEmail("atrostyanko+0401@gmail.com")
                 .withIsActive(true)
                 .build();
 
         tester = new User.Builder()
                 .withName("AQA7 Tester")
-                .withEmail("atrostyanko+072@gmail.com")
+                .withEmail("atrostyanko+0401@gmail.com")
                 .withIsActive(true)
                 .build();
 

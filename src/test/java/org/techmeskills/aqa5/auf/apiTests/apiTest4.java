@@ -12,7 +12,6 @@ import org.techmeskills.aqa5.auf.models.User;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import javax.jws.soap.SOAPBinding;
 import java.util.HashMap;
 import java.util.Map;
 

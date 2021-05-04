@@ -13,14 +13,14 @@ public class apiTestRailTest {
 
     @Test
     public void test() {
-        String baseUrl = "https://aqa0702.testrail.io/";
+        String baseUrl = "https://aqa04onl03.testrail.io/";
         String endpoint = "index.php?/api/v2/get_users";
 
         RestAssured.baseURI = baseUrl;
 
         RequestSpecification httpRequest = RestAssured.given();
         httpRequest.header(HTTP.CONTENT_TYPE, ContentType.JSON);
-        httpRequest.auth().preemptive().basic("atrostyanko+072@gmail.com", "w3n1bU7F4rxOfnfvrBJL");
+        httpRequest.auth().preemptive().basic("atrostyanko+0401@gmail.com", "w3n1bU7F4rxOfnfvrBJL");
 
         Response response = httpRequest.request(Method.GET, endpoint);
 
