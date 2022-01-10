@@ -1,25 +1,25 @@
 package org.techmeskills.aqa5.auf.elements;
 
 import org.openqa.selenium.*;
-import org.techmeskills.aqa5.auf.utils.Waiters;
+import org.techmeskills.aqa5.auf.utils.Waits;
 
 import java.util.List;
 
 public class UIElement implements WebElement {
     private final WebElement webElement;
     private final WebDriver driver;
-    private final Waiters waiters;
+    private final Waits waits;
 
     public UIElement(WebDriver driver, WebElement webElement) {
         this.webElement = webElement;
         this.driver = driver;
-        waiters = new Waiters(driver);
+        waits = new Waits(driver);
     }
 
     public UIElement(WebDriver driver, By by) {
         this.driver = driver;
         this.webElement = findElement(by);
-        waiters = new Waiters(driver);
+        waits = new Waits(driver);
     }
 
     @Override
@@ -28,7 +28,7 @@ public class UIElement implements WebElement {
             webElement.click();
         } catch (ElementNotVisibleException e) {
             ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", webElement);
-            waiters.waitForClickable(webElement);
+            waits.waitForClickable(webElement);
             webElement.click();
         }
     }

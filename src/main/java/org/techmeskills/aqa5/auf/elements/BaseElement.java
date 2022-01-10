@@ -2,7 +2,7 @@ package org.techmeskills.aqa5.auf.elements;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
-import org.techmeskills.aqa5.auf.utils.Waiters;
+import org.techmeskills.aqa5.auf.utils.Waits;
 
 import java.util.List;
 
@@ -11,26 +11,26 @@ public abstract class BaseElement {
     protected WebDriver driver;
     private By by;
     private String name;
-    private Waiters waiters;
+    private Waits waits;
 
 
     public BaseElement(WebDriver driver, By by) {
         this.driver = driver;
         this.by = by;
-        waiters = new Waiters(driver);
+        waits = new Waits(driver);
     }
 
     public BaseElement(WebDriver driver, By by, String name) {
         this.driver = driver;
         this.by = by;
         this.name = name;
-        waiters = new Waiters(driver);
+        waits = new Waits(driver);
     }
 
     public BaseElement(WebDriver driver, WebElement element) {
         this.element = element;
         this.driver = driver;
-        waiters = new Waiters(driver);
+        waits = new Waits(driver);
     }
 
     protected abstract String getElementType();

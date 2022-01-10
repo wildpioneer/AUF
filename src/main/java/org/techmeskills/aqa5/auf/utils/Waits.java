@@ -7,16 +7,16 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.techmeskills.aqa5.auf.core.ReadProperties;
 
-public class Waiters {
-    private WebDriver driver;
-    private WebDriverWait wait;
+public class Waits {
+    private final WebDriver driver;
+    private final WebDriverWait wait;
 
-    public Waiters(WebDriver driver, int timeOut) {
+    public Waits(WebDriver driver, int timeOut) {
         this.driver = driver;
         wait = new WebDriverWait(driver, timeOut);
     }
 
-    public Waiters(WebDriver driver) {
+    public Waits(WebDriver driver) {
         this.driver = driver;
         ReadProperties readProperties = new ReadProperties();
         wait = new WebDriverWait(driver, readProperties.getTimeOut());
