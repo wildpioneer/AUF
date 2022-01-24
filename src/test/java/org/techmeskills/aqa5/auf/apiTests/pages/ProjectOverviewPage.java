@@ -1,4 +1,4 @@
-package org.techmeskills.aqa5.auf.pages;
+package org.techmeskills.aqa5.auf.apiTests.pages;
 
 import org.openqa.selenium.By;
 import org.techmeskills.aqa5.auf.baseEntity.BasePage;

@@ -4,8 +4,8 @@ import io.qameta.allure.Step;
 import org.techmeskills.aqa5.auf.baseEntity.BaseStep;
 import org.techmeskills.aqa5.auf.core.BrowsersService;
 import org.techmeskills.aqa5.auf.elements.UIElement;
-import org.techmeskills.aqa5.auf.pages.administration.AdministrationPage;
-import org.techmeskills.aqa5.auf.pages.administration.ProjectsPage;
+import org.techmeskills.aqa5.auf.apiTests.pages.administration.AdministrationPage;
+import org.techmeskills.aqa5.auf.apiTests.pages.administration.ProjectsPage;
 
 public class AdministrationStep extends BaseStep {
 
