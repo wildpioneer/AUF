@@ -61,16 +61,16 @@ public class apiMainTest4 extends BaseApiTest {
 
     @Test
     public void getProject() {
-        int projectID = 2;
+        int projectID = 5;
         String endpoint = "/index.php?/api/v2/get_project/" + projectID;
 
         ProjectAPI projectAPIExpected = ProjectAPI.builder()
                 .name("MainProject")
-                .id(2)
+                .id(5)
                 .show_announcement(false)
                 .is_completed(false)
                 .suite_mode(3)
-                .url("https://aqa04onl03.testrail.io/index.php?/projects/overview/2")
+                .url("https://qa1504.testrail.io/index.php?/projects/overview/2")
                 .build();
 
         String response = given()
